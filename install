@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# symlink files to ~
+# so they are centralized here
+#
+# (heavily) Inspired by Dave Eddy of YSAP
+
+symlink() {
+    printf '%55s -> %s\n' "${1/#$HOME/\~}" "${2/#$HOME/\~}"
+    ln -nsf "$@"
+}
+
+# don't forget to add dotfiles here!
+dotfiles=(
+    vimrc
+)
+
+for f in "${dotfiles[@]}"; do
+    [[ -d ~/.$f && ! -L ~/.$f ]] && rm -r ~/."$f"
+    symlink "$PWD/$f" ~/."$f"
+done

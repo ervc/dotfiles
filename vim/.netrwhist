@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/ericvc/Documents/current_classes/Defense'
+let g:netrw_dirhist_6='/Users/ericvc/Documents/current_classes/Defense/University_of_Chicago_PhD_Dissertation'
+let g:netrw_dirhist_5='/Users/ericvc/Documents/current_classes/Defense'
+let g:netrw_dirhist_4='/Users/ericvc/Documents/current_classes/Defense/University_of_Chicago_PhD_Dissertation'
+let g:netrw_dirhist_3='/Users/ericvc/Documents/current_classes/Defense'
+let g:netrw_dirhist_2='/Users/ericvc/Documents/current_classes/Defense/Thesis_Template'
+let g:netrw_dirhist_1='/Users/ericvc/Documents/current_classes/Defense'
+let g:netrw_dirhist_0='/Users/ericvc'
+let g:netrw_dirhist_9='/Users/ericvc/.vim'
+let g:netrw_dirhist_8='/Users/ericvc'
