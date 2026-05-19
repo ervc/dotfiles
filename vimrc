@@ -61,6 +61,11 @@ nnoremap <leader>ff :FZF<cr>
 nnoremap <leader>fw :write<cr>
 nnoremap <leader>qq :quit<cr>
 
+" fast file opening
+nnoremap <leader>oo :call fzf#run(fzf#wrap(
+            \ {'sink': {f -> system('open ' . shellescape(f))}}
+            \ ))<cr>
+
 " faster window switching
 nnoremap <leader>w <C-w>
 nnoremap <leader>wv <C-w>v<C-w>l :FZF<cr>
@@ -72,16 +77,14 @@ nnoremap <leader>bh :bprevious<cr>
 nnoremap <leader>bd :bdelete<cr>
 
 " git shortcuts
-
 " lazygit
 nnoremap <leader>gl :!lazygit<cr>
 
 " delete into trash register
 nnoremap x "_x
-" python specific events
+
 " comments and uncomments
 autocmd FileType python inoremap """ """<cr><cr>"""<esc>ki
-
 " C specific events
 autocmd FileType C inoremap /* /*<cr><cr>*/<esc>ki
 
