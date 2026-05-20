@@ -21,3 +21,8 @@ for f in "${dotfiles[@]}"; do
     [[ -d ~/.$f && ! -L ~/.$f ]] && rm -r ~/."$f"
     symlink "$PWD/$f" ~/."$f"
 done
+
+# run plug install for vim
+if [[ -t 1 ]]; then
+    vim '+PlugInstall --sync' +qa
+fi
