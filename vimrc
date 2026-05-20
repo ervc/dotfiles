@@ -21,10 +21,9 @@ set linebreak
 source ~/.vim/my-plugins
 
 " colorscheme
-" if has('termguicolors')
-"     set termguicolors
-" endif
-set termguicolors
+if has('termguicolors')
+    set termguicolors
+endif
 " set background=dark
 " options: 'hard', 'medium'(default), 'soft'
 let g:everforest_background = 'hard'
