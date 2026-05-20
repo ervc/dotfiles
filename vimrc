@@ -28,7 +28,13 @@ endif
 " options: 'hard', 'medium'(default), 'soft'
 let g:everforest_background = 'hard'
 let g:everforest_better_performance = 1
-autocmd vimenter * ++nested colorscheme everforest
+" check for ++nested
+if has('patch-8.1.1113')
+    autocmd vimenter * ++nested colorscheme everforest
+else
+    autocmd vimenter * nested colorscheme everforest
+endif
+
 
 " latex flavor default
 let g:tex_flavor="tex"
