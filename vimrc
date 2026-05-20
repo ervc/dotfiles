@@ -51,6 +51,14 @@ hi SpellBad ctermfg=red gui=underline cterm=underline
 inoremap kj <esc>
 vnoremap kj <esc>
 
+" fast line movement
+nnoremap H ^
+vnoremap H ^
+onoremap H ^
+nnoremap L $
+vnoremap L $
+onoremap L $
+
 " fast edit of vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
