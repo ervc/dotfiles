@@ -21,12 +21,15 @@ set linebreak
 source ~/.vim/my-plugins
 
 " colorscheme
+" if has('termguicolors')
+"     set termguicolors
+" endif
 set termguicolors
-set background=dark
-autocmd vimenter * ++nested colorscheme gruvbox
-" let g:gruvbox_italic=1
-" let g:gruvbox_contrast_dark="hard"
-" let g:airline_theme = 'catppuccin_mocha'
+" set background=dark
+" options: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'hard'
+let g:everforest_better_performance = 1
+autocmd vimenter * ++nested colorscheme everforest
 
 " latex flavor default
 let g:tex_flavor="tex"
