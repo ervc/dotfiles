@@ -26,7 +26,7 @@ if has('termguicolors')
 endif
 " set background=dark
 " options: 'hard', 'medium'(default), 'soft'
-let g:everforest_background = 'hard'
+let g:everforest_background = 'medium'
 let g:everforest_better_performance = 1
 " check for ++nested
 if has('patch-8.1.1113')
