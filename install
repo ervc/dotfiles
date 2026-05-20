@@ -14,6 +14,7 @@ symlink() {
 dotfiles=(
     vimrc
     vim/my-plugins
+    vim/autoload
 )
 
 for f in "${dotfiles[@]}"; do
