@@ -13,6 +13,7 @@ symlink() {
 # don't forget to add dotfiles here!
 dotfiles=(
     vimrc
+    vim/my-plugins
 )
 
 for f in "${dotfiles[@]}"; do
