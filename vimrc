@@ -44,9 +44,11 @@ autocmd FileType tex set spell spelllang=en
 autocmd FileType tex syntax spell toplevel
 " quick search sections and headings
 " regex explanation:
+" \v for very magic regex
 " ^ start of line, \\ literal '\'
-" .* wildcard allows for sub- or subsub- prefix
-" \( chapter \| section \) match 'chapter' or 'section'
+" ( chapter \| (sub)*section \) match 'chapter' or '(sub(sub))section'
+" \{ for literal '{'
+" .* to allow searching in middle of section title
 autocmd FileType tex nnoremap <leader>ss /\v^\\(chapter\|(sub)*section)\{.*
 
 " md spell checking
