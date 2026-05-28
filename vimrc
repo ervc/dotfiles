@@ -42,6 +42,12 @@ let g:tex_flavor="tex"
 " latex spell checking
 autocmd FileType tex set spell spelllang=en
 autocmd FileType tex syntax spell toplevel
+" quick search sections and headings
+" regex explanation:
+" ^ start of line, \\ literal '\'
+" .* wildcard allows for sub- or subsub- prefix
+" \( chapter \| section \) match 'chapter' or 'section'
+autocmd FileType tex nnoremap <leader>ss /\v^\\(chapter\|(sub)*section)\{.*
 
 " md spell checking
 autocmd FileType markdown set spell spelllang=en
