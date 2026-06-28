@@ -104,6 +104,9 @@ nnoremap <leader>bd :bdelete<cr>
 " lazygit
 nnoremap <leader>gl :!lazygit<cr>
 
+" run/compile code
+nnoremap <leader>rp :write<cr>:!python %<cr>
+
 " delete into trash register
 nnoremap x "_x
 
