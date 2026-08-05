@@ -100,11 +100,6 @@ nnoremap <leader>rp :write<cr>:!python %<cr>
 " delete into trash register
 nnoremap x "_x
 
-" comments and uncomments
-autocmd FileType python inoremap """ """<cr><cr>"""<esc>ki
-" C specific events
-autocmd FileType C inoremap /* /*<cr><cr>*/<esc>ki
-
 " add new lines
 nnoremap <cr> o<esc>
 nnoremap <S-cr> O<esc>
