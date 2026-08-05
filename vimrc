@@ -1,22 +1,3 @@
-" leader
-let mapleader = " "
-let maplocalleader = " "
-
-" display settings
-set scrolloff=5
-set number relativenumber
-syntax on
-set textwidth=80
-set ruler
-autocmd FileType tex set textwidth=80
-set smartindent
-set incsearch
-set ignorecase smartcase
-
-" auto tab settings
-set autoindent expandtab tabstop=4 shiftwidth=4
-set linebreak
-
 " plugins
 source ~/.vim/my-plugins
 
@@ -24,43 +5,51 @@ source ~/.vim/my-plugins
 if has('termguicolors')
     set termguicolors
 endif
-" set background=dark
 " options: 'hard', 'medium'(default), 'soft'
 let g:everforest_background = 'medium'
 let g:everforest_better_performance = 1
 " check for ++nested
 if has('patch-8.1.1113')
-    autocmd vimenter * ++nested colorscheme everforest
+    colorscheme everforest
 else
     autocmd vimenter * nested colorscheme everforest
 endif
 
+" filetypes after colorscheme
+filetype plugin indent on
+syntax on
+
+
+" leader
+let mapleader = " "
+let maplocalleader = " "
+
+" display settings
+set scrolloff=5
+set number relativenumber
+set textwidth=80
+set ruler
+set smartindent
+set incsearch
+set ignorecase smartcase
+
+" enable mouse
+set mouse=a
+
+" auto tab settings
+set autoindent expandtab tabstop=4 shiftwidth=4
+set linebreak
+
+
 
 " latex flavor default
 let g:tex_flavor="tex"
-
-" latex spell checking
-autocmd FileType tex set spell spelllang=en
-autocmd FileType tex syntax spell toplevel
-" quick search sections and headings
-" regex explanation:
-" \v for very magic regex
-" ^ start of line, \\ literal '\'
-" ( chapter \| (sub)*section \) match 'chapter' or '(sub(sub))section'
-" \{ for literal '{'
-" .* to allow searching in middle of section title
-autocmd FileType tex nnoremap <leader>ss /\v^\\(chapter\|(sub)*section)\{.*
-
-" md spell checking
-autocmd FileType markdown set spell spelllang=en
-autocmd FileType markdown syntax spell toplevel
 
 " md setting
 set conceallevel=0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
-" disable markdown autoindents hack
 hi SpellBad ctermfg=red gui=underline cterm=underline
 
 " fast excape
@@ -80,8 +69,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " fast file editing
-nnoremap <leader><leader> :FZF<cr>
-nnoremap <leader>ff :FZF<cr>
+nnoremap <leader><leader> :CallFZF<cr>
+nnoremap <leader>ff :CallFZF<cr>
 nnoremap <leader>fw :write<cr>
 nnoremap <leader>qq :quit<cr>
 
@@ -92,7 +81,8 @@ nnoremap <leader>oo :call fzf#run(fzf#wrap(
 
 " faster window switching
 nnoremap <leader>w <C-w>
-nnoremap <leader>wv <C-w>v<C-w>l :FZF<cr>
+nnoremap <leader>wq :wq<cr>
+nnoremap <leader>wv <C-w>v<C-w>l :CallFZF<cr>
 
 " better buffer switching
 nnoremap <leader>bb :buffers<cr>:buffer<space>
@@ -118,3 +108,16 @@ autocmd FileType C inoremap /* /*<cr><cr>*/<esc>ki
 " add new lines
 nnoremap <cr> o<esc>
 nnoremap <S-cr> O<esc>
+
+function! CallFZF()
+    write
+    FZF
+endfunction
+command! CallFZF call CallFZF()
+
+" Create PDF using pandoc
+function! MakePDF()
+    write
+    execute '!pandoc '.shellescape(expand('%')).' -o '.shellescape(expand('%:r')).'.pdf'
+endfunction
+command! MakePDF call MakePDF()
