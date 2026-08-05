@@ -16,7 +16,7 @@ dotfiles=(
     vimrc
     vim/my-plugins
     vim/autoload
-    vim/plugins
+    vim/plugin
 )
 
 for f in "${dotfiles[@]}"; do
