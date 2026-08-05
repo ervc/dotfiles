@@ -4,9 +4,10 @@
 # so they are centralized here
 #
 # (heavily) Inspired by Dave Eddy of YSAP
+# See: github.com/bahamas10/dotfiles
 
 symlink() {
-    printf '%55s -> %s\n' "${1/#$HOME/\~}" "${2/#$HOME/\~}"
+    printf '%55s -> %s\n' "${1/#$HOME/~}" "${2/#$HOME/~}"
     ln -nsf "$@"
 }
 
@@ -15,6 +16,7 @@ dotfiles=(
     vimrc
     vim/my-plugins
     vim/autoload
+    vim/plugins
 )
 
 for f in "${dotfiles[@]}"; do
