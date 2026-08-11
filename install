@@ -17,6 +17,7 @@ dotfiles=(
     vim/my-plugins
     vim/autoload
     vim/plugin
+    vim/ftplugin
 )
 
 for f in "${dotfiles[@]}"; do
