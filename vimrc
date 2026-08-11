@@ -28,6 +28,7 @@ let maplocalleader = " "
 set scrolloff=5
 set number relativenumber
 set textwidth=80
+set colorcolumn=80
 set ruler
 set smartindent
 set incsearch
@@ -113,6 +114,6 @@ command! CallFZF call CallFZF()
 " Create PDF using pandoc
 function! MakePDF()
     write
-    execute '!pandoc '.shellescape(expand('%')).' -o '.shellescape(expand('%:r')).'.pdf'
+    execute '!make pdf'
 endfunction
 command! MakePDF call MakePDF()
