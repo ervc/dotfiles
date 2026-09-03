@@ -41,8 +41,6 @@ set mouse=a
 set autoindent expandtab tabstop=4 shiftwidth=4
 set linebreak
 
-
-
 " latex flavor default
 let g:tex_flavor="tex"
 
@@ -105,6 +103,14 @@ nnoremap x "_x
 " add new lines
 nnoremap <cr> o<esc>
 nnoremap <S-cr> O<esc>
+
+" Google Antigravity setup
+" Enable auto-reloading if agy makes local changes
+set autoread
+autocmd FocusGained,BufEnter,CursorHold * if mode() != 'c' | checktime | endif
+" split window and launch agy on <leader>ag
+nnoremap <leader>ag :vsplit \| wincmd L \| vertical resize 45 \| terminal agy<CR>i
+tnoremap <Esc> <C-\><C-n>
 
 function! CallFZF()
     write
