@@ -1,5 +1,5 @@
 " plugins
-source ~/.vim/my-plugins
+source ~/.vim/my-plugins.vim
 
 " colorscheme
 if has('termguicolors')
@@ -51,6 +51,7 @@ set conceallevel=0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
+set foldlevelstart=99
 hi SpellBad ctermfg=red gui=underline cterm=underline
 
 " fast excape
