@@ -14,7 +14,7 @@ symlink() {
 # don't forget to add dotfiles here!
 dotfiles=(
     vimrc
-    vim/my-plugins
+    vim/my-plugins.vim
     vim/autoload
     vim/plugin
     vim/ftplugin
