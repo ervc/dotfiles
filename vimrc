@@ -82,7 +82,7 @@ nnoremap <leader>oo :call fzf#run(fzf#wrap(
 " faster window switching
 nnoremap <leader>w <C-w>
 nnoremap <leader>wq :wq<cr>
-nnoremap <leader>wv <C-w>v<C-w>l :CallFZF<cr>
+nnoremap <leader>wv <C-w>v<C-w>l
 
 " better buffer switching
 nnoremap <leader>bb :buffers<cr>:buffer<space>
