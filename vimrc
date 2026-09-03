@@ -109,7 +109,7 @@ nnoremap <S-cr> O<esc>
 set autoread
 autocmd FocusGained,BufEnter,CursorHold * if mode() != 'c' | checktime | endif
 " split window and launch agy on <leader>ag
-nnoremap <leader>ag :vsplit \| wincmd L \| vertical resize 45 \| terminal agy<CR>i
+nnoremap <leader>ag :vert rightbelow terminal agy<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 function! CallFZF()
