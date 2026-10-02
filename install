@@ -14,6 +14,7 @@ symlink() {
 # don't forget to add dotfiles here!
 dotfiles=(
     vimrc
+    bashrc
     zshrc
     vim/my-plugins.vim
     vim/autoload

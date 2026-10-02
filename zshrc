@@ -1,9 +1,4 @@
-###############
-### ALIASES ###
-###############
-
-alias ls="ls --color=auto"
-
+source ~/.bashrc
 
 ##############
 ### PROMPT ###
