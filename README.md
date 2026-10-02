@@ -7,3 +7,5 @@ Customization dotfiles I use for terminal applications
 This is a minimal version of my dotfiles, mostly for common vim commands in my
 muscle memory. This has been set up on my mac -- no guarantee it will work for
 other operating systems!
+
+Include vim, bash and zsh files
