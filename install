@@ -20,6 +20,10 @@ dotfiles=(
     vim/ftplugin
 )
 
+if [[ ! -d ~/.vim ]]; do
+    mkdir -p ~/.vim
+done
+
 for f in "${dotfiles[@]}"; do
     [[ -d ~/.$f && ! -L ~/.$f ]] && rm -r ~/."$f"
     symlink "$PWD/$f" ~/."$f"
