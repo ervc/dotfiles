@@ -14,15 +14,16 @@ symlink() {
 # don't forget to add dotfiles here!
 dotfiles=(
     vimrc
+    zshrc
     vim/my-plugins.vim
     vim/autoload
     vim/plugin
     vim/ftplugin
 )
 
-if [[ ! -d ~/.vim ]]; do
+if [[ ! -d ~/.vim ]]; then
     mkdir -p ~/.vim
-done
+fi
 
 for f in "${dotfiles[@]}"; do
     [[ -d ~/.$f && ! -L ~/.$f ]] && rm -r ~/."$f"
