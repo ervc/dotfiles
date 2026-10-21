@@ -5,9 +5,21 @@ source ~/.bashrc
 #################
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
-plugins=(git)
+plugins=(git conda-zsh-completion)
 
 source $ZSH/oh-my-zsh.sh
+
+# include compinit for conda-zsh-completion
+autoload -U compinit && compinit
+# necessary for conda-zsh-completion conda install
+zstyle ':completion::complete:*' use-cache 1
+# only autocomplete conda environments
+_conda_activate_envs_only() {
+    local envs
+    envs=($(conda env list 2>/dev/null | awk 'NR>2 && !/^#/ {print $1}'))
+    compadd -a envs
+}
+compdef _conda_activate_envs_only 'conda activate'
 
 ##############
 ### PROMPT ###
@@ -73,3 +85,6 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# Created by `pipx` on 2026-10-05 20:03:27
+export PATH="$PATH:/Users/ericvc/.local/bin"

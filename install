@@ -20,6 +20,7 @@ dotfiles=(
     vim/autoload
     vim/plugin
     vim/ftplugin
+    vim/after
 )
 
 if [[ ! -d ~/.vim ]]; then

@@ -31,4 +31,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+" vimtex
+Plug 'lervag/vimtex'
+
+" SuperTab
+Plug 'ervandew/supertab'
+
 call plug#end()

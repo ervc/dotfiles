@@ -19,6 +19,11 @@ endif
 filetype plugin indent on
 syntax on
 
+" supertab autocomplete in tex
+" autocmd FileType tex call SuperTabSetDefaultCompletionType("<c-x><c-o>")"
+
+" Turn off autoclose by default
+let g:autoclose_on = 0
 
 " leader
 let mapleader = " "
