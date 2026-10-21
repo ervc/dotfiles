@@ -41,7 +41,7 @@ __build_prompt() {
     promptdir="\w"
     promptout="\$"
 
-    PS1="${promptdir}\n${promptpy}${__bold_on}\u${__bold_off} ${promptout} "
+    PS1="${promptdir}\n${promptpy}${__bold_on}\u@\h${__bold_off} ${promptout} "
 }
 
 # Run before each prompt, ahead of anything else already in PROMPT_COMMAND
