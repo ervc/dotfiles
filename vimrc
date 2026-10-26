@@ -49,6 +49,22 @@ set linebreak
 " latex flavor default
 let g:tex_flavor="tex"
 
+" netrw settings
+" open files in the previous window
+let g:netrw_browse_split = 4   
+" set the width
+let g:netrw_winsize = 20
+nnoremap <leader>e :Lexplore<cr>
+" allow to move buffer even if unsaved changes
+set hidden
+" remove the banner
+let g:netrw_banner = 0
+" add current folder to status line
+augroup netrw_custom
+  autocmd!
+  autocmd FileType netrw setlocal statusline=\ >\ %{b:netrw_curdir}
+augroup END
+
 " md setting
 set conceallevel=0
 let g:vim_markdown_conceal = 0
