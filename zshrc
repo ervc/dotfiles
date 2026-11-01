@@ -46,7 +46,7 @@ py_env() {
 precmd() {
     vcs_info # stores version control to vcs_info_msg_0_
     PROMPTPY="$(py_env)"
-    PROMPTDIR="%F{blue}%~%f"
+    PROMPTDIR="%F{green}%~%f"
     PROMPTGIT="%F{gray}${vcs_info_msg_0_}%f$(parse_git_dirty)"
     # Check last output
     PROMPTOUT="%(?.%F{green}>%f.%F{red}>%f)"
