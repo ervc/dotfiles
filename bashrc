@@ -23,8 +23,13 @@ export SYSTEM=gfortan
 # simple bash version of command prompt
 if [ -n "$BASH_VERSION" ]; then
 
-__bold_on='\[\033[1m\]'       # like zsh %B
-__bold_off='\[\033[22m\]'     # like zsh %b
+__bold='\[\033[1m\]'
+__reset='\[\033[0m\]'
+__red='\[\033[31m\]'
+__green='\[\033[32m\]'
+__blue='\[\033[34m\]'
+__magenta='\[\033[35m\]'
+__cyan='\[\033[36m\]'
 
 
 py_env() {
@@ -41,7 +46,21 @@ __build_prompt() {
     promptdir="\w"
     promptout="\$"
 
-    PS1="${promptpy}${__bold_on}\u@\h${__bold_off} ${promptdir} ${promptout} "
+    # conda env if active
+    PS1="${__magenta}${promptpy}${__reset}"
+
+    # uname
+    PS1+="${__bold}${__blue}\u${__reset}"
+
+    #hostname
+    PS1+="${__cyan}@\h"
+
+    # directory
+    PS1+=" ${__reset}\w"
+
+    # prompot output
+    PS1+=" ${__bold}\$${__reset} "
+    # PS1="${promptpy}${__bold}\u@\h${__reset} ${promptdir} ${promptout} "
 }
 
 # Run before each prompt, ahead of anything else already in PROMPT_COMMAND
