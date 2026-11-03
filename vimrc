@@ -121,8 +121,8 @@ nnoremap <leader>rp :write<cr>:!python %<cr>
 " delete into trash register
 nnoremap x "_x
 
-" add new lines
-nnoremap <cr> o<esc>
+" add new lines but only in normal buffers
+nnoremap <expr> <CR> &buftype ==# '' ? 'o<Esc>' : "\<CR>"
 nnoremap <S-cr> O<esc>
 
 " Google Antigravity setup
