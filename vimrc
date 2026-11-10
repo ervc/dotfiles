@@ -144,10 +144,14 @@ set autoread
 autocmd FocusGained,BufEnter,CursorHold * if mode() != 'c' | checktime | endif
 " split window and launch agy on <leader>ag
 nnoremap <leader>ag :vert rightbelow terminal agy<CR>i
-tnoremap <Esc> <C-\><C-n>
+" <Esc> leaves terminal mode, except in fzf where it should close the popup
+tnoremap <expr> <Esc> &filetype ==# 'fzf' ? "\<Esc>" : "\<C-\>\<C-n>"
 
 function! CallFZF()
-    write
+    " only save named, normal buffers (avoids E32 on the startup screen)
+    if &buftype ==# '' && expand('%') !=# ''
+        update
+    endif
     FZF
 endfunction
 command! CallFZF call CallFZF()
