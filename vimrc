@@ -1,6 +1,16 @@
 " plugins
 source ~/.vim/my-plugins.vim
 
+" lsp servers (lsp_setup fires once at startup, so register here, not in ftplugin)
+augroup lsp_servers
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'Zuban',
+        \ 'cmd': ['zuban', 'server'],
+        \ 'allowlist': ['python'],
+        \ })
+augroup END
+
 " colorscheme
 if has('termguicolors')
     set termguicolors
@@ -106,10 +116,13 @@ nnoremap <leader>wq :wq<cr>
 nnoremap <leader>wv <C-w>v<C-w>l
 
 " better buffer switching
-nnoremap <leader>bb :buffers<cr>:buffer<space>
+" nnoremap <leader>bb :buffers<cr>:buffer<space>
+" use fzf for this
+nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bl :bnext<cr>
 nnoremap <leader>bh :bprevious<cr>
 nnoremap <leader>bd :bdelete<cr>
+nnoremap <leader>bp :b#<cr>
 
 " git shortcuts
 " lazygit
