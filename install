@@ -21,11 +21,10 @@ dotfiles=(
     vim/plugin
     vim/ftplugin
     vim/after
+    config/ruff
 )
 
-if [[ ! -d ~/.vim ]]; then
-    mkdir -p ~/.vim
-fi
+mkdir -p ~/.vim ~/.config
 
 for f in "${dotfiles[@]}"; do
     [[ -d ~/.$f && ! -L ~/.$f ]] && rm -r ~/."$f"

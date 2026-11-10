@@ -9,7 +9,21 @@ augroup lsp_servers
         \ 'cmd': ['zuban', 'server'],
         \ 'allowlist': ['python'],
         \ })
+    " ruff for lint warnings (unused variables, etc.); zuban handles types
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'ruff',
+        \ 'cmd': ['ruff', 'server'],
+        \ 'allowlist': ['python'],
+        \ })
 augroup END
+
+" diagnostics: errors show inline at the end of the line (vim/plugin/lsp_error_text.vim);
+" everything shows in a popup when the cursor rests on the line
+" (gutter signs and underlines stay on). vim-lsp's own virtual text can't filter
+" by severity, so it stays off.
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_float_delay = 300
 
 " colorscheme
 if has('termguicolors')
@@ -28,6 +42,9 @@ endif
 " filetypes after colorscheme
 filetype plugin indent on
 syntax on
+
+" supertab: <Tab> walks the completion list top-down (default <c-p> starts at the bottom)
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " supertab autocomplete in tex
 " autocmd FileType tex call SuperTabSetDefaultCompletionType("<c-x><c-o>")"

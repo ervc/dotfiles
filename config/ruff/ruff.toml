@@ -1,0 +1,6 @@
+# user-wide ruff settings (symlinked to ~/.config/ruff by ./install)
+# projects with their own ruff.toml / pyproject.toml override this
+
+[lint]
+# don't warn about import order; use :LspCodeAction source.organizeImports instead
+ignore = ["I"]
